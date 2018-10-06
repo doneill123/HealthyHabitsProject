@@ -1,6 +1,8 @@
 package com.example.danieloneill.healthyhabits;
 
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -11,7 +13,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,20 +22,19 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
-    private Button buttonRegister;
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+    private Button buttonSignIn;
     private EditText editTextEmail;
     private EditText editTextPassword;
-    private TextView textViewSignIn;
+    private TextView textViewSignUp;
     private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        firebaseAuth = firebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
 
         if(firebaseAuth.getCurrentUser() != null){
             //home page will start
@@ -42,18 +42,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         }
 
-        buttonRegister = (Button) findViewById(R.id.buttonRegister);
-
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        buttonSignIn = (Button) findViewById(R.id.buttonSignIn);
+        textViewSignUp = (TextView) findViewById(R.id.textViewSignUp);
 
-        textViewSignIn = (TextView) findViewById(R.id.textViewSignIn);
-
-        buttonRegister.setOnClickListener(this);
-        textViewSignIn.setOnClickListener(this);
+        buttonSignIn.setOnClickListener(this);
+        textViewSignUp.setOnClickListener(this);
     }
 
-    private void registerUser(){
+    private void userLogin(){
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
@@ -71,15 +69,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        firebaseAuth.createUserWithEmailAndPassword(email,password)
+        firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()){
-                                finish();
-                                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        }else{
-                            Toast.makeText(MainActivity.this, "Failed to register. Please try again", Toast.LENGTH_SHORT).show();
+                           //start the home page
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         }
                     }
                 });
@@ -87,12 +85,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (view == buttonRegister) {
-            registerUser();
-        }
+        if(view == buttonSignIn){
+            userLogin();
+    }
 
-        if (view == textViewSignIn) {
-            startActivity(new Intent(this, HomeActivity.class));
+        if(view == textViewSignUp) {
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 }

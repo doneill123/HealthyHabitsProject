@@ -34,10 +34,22 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="$USER_HOME$/Desktop/imageedit_1_4631923120.png" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Desktop/logo.png" />
                                       <entry key="outputName" value="logo" />
                                       <entry key="theme" value="CUSTOM" />
                                       <entry key="themeColor" value="3b14a0" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                            <entry key="launcherLegacy">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Desktop/logo.png" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -47,7 +59,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="ACTIONBAR" />
+                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
                           </map>
                         </option>
                       </PersistentState>

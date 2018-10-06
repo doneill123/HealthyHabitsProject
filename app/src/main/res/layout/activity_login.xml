@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterUser">
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,46 +30,27 @@
             android:hint="Password" />
 
         <Button
-            android:id="@+id/buttonRegister"
-            android:text="Register Here"
+            android:id="@+id/buttonSignIn"
+            android:text="Login "
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        
+
         <TextView
             android:textAlignment="center"
-            android:text="Already registered? Sign In Here"
-            android:id="@+id/textViewSignIn"
+            android:text="Don't have an account? Sign Up Here"
+            android:id="@+id/textViewSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        
+
     </LinearLayout>
 
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include
-        layout="@layout/register_user_content"
-        android:layout_height="413dp"
-        android:layout_width="wrap_content"/>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:text="User Login" />
 
 </RelativeLayout>
