@@ -1,6 +1,5 @@
 package com.example.danieloneill.healthyhabits;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -21,21 +20,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class main_activity2 extends AppCompatActivity implements View.OnClickListener{
+public class RegisterUser extends AppCompatActivity implements View.OnClickListener{
 
     private Button buttonRegister;
     private EditText editTextEmail;
     private EditText editTextPassword;
     private TextView textViewSignIn;
-
-    private ProgressBar progressBar;
-
     private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout._main_activity2);
+        setContentView(R.layout.register_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -50,8 +46,6 @@ public class main_activity2 extends AppCompatActivity implements View.OnClickLis
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth = firebaseAuth.getInstance();
-
-        progressBar = new ProgressBar(this);
 
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
 
@@ -81,8 +75,6 @@ public class main_activity2 extends AppCompatActivity implements View.OnClickLis
             //stopping the function executor further
             return;
         }
-        //if validations are ok
-        // we will 1st show a progress bar
 
         firebaseAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -91,13 +83,12 @@ public class main_activity2 extends AppCompatActivity implements View.OnClickLis
                         if (task.isComplete()){
                             //user has successfully register and logged in
                             //we will start the prfile activity here
-                            Toast.makeText(main_activity2.this, "Successful registration", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterUser.this, "Successful registration", Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(main_activity2.this, "Failed to register. Please try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterUser.this, "Failed to register. Please try again", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-
     }
 
     @Override

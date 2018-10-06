@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main_activity2Fragment"
-    tools:showIn="@layout/_main_activity2">
+    tools:context=".RegisterUserFragment"
+    tools:showIn="@layout/register_user">
 
 </android.support.constraint.ConstraintLayout>
