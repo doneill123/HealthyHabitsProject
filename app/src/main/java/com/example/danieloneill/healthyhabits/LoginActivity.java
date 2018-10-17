@@ -3,11 +3,9 @@ package com.example.danieloneill.healthyhabits;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,12 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private Button buttonSignIn;
@@ -37,7 +33,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         firebaseAuth = FirebaseAuth.getInstance();
 
         if(firebaseAuth.getCurrentUser() != null){
-            //home page will start
             finish();
             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         }
@@ -46,7 +41,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         buttonSignIn = (Button) findViewById(R.id.buttonSignIn);
         textViewSignUp = (TextView) findViewById(R.id.textViewSignUp);
-
         buttonSignIn.setOnClickListener(this);
         textViewSignUp.setOnClickListener(this);
     }
@@ -56,16 +50,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String password = editTextPassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
-            //empty email
             Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show();
-            //stopping the function executor further
             return;
         }
 
         if (TextUtils.isEmpty(password)){
-            //empty password
             Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT).show();
-            //stopping the function executor further
             return;
         }
 
@@ -75,7 +65,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()){
-                           //start the home page
                             finish();
                             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         }

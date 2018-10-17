@@ -43,13 +43,27 @@
                                 </PersistentState>
                               </value>
                             </entry>
+                            <entry key="launcher">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="previewDensity" value="XXXHIGH" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
                             <entry key="launcherLegacy">
                               <value>
                                 <PersistentState>
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
+                                      <entry key="cropped" value="true" />
+                                      <entry key="iconShape" value="NONE" />
                                       <entry key="imageAsset" value="$USER_HOME$/Desktop/logo.png" />
+                                      <entry key="outputName" value="logo" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -68,6 +82,11 @@
                 </map>
               </option>
             </PersistentState>
+          </value>
+        </entry>
+        <entry key="vectorWizard">
+          <value>
+            <PersistentState />
           </value>
         </entry>
       </map>

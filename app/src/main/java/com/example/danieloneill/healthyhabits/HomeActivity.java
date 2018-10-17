@@ -6,12 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
-
    private FirebaseAuth firebaseAuth;
    private TextView textViewUserEmail;
    private ImageButton buttonLogout;
@@ -33,7 +31,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         textViewUserEmail = (TextView) findViewById(R.id.textViewUserEmail);
         textViewUserEmail.setText("Welcome"+user.getEmail());
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
-
         buttonLogout.setOnClickListener(this);
     }
 

@@ -2,31 +2,99 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
 
+    <ImageButton
+        android:id="@+id/buttonHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="467dp"
+        android:layout_marginEnd="334dp"
+        app:srcCompat="@drawable/home" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+    <ImageButton
+        android:id="@+id/buttonFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="467dp"
+        android:layout_marginEnd="277dp"
+        app:srcCompat="@drawable/food" />
 
-        <ImageButton
-            android:id="@+id/buttonLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            app:srcCompat="@drawable/logout" />
+    <ImageButton
+        android:id="@+id/buttonDrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="467dp"
+        android:layout_marginEnd="221dp"
+        app:srcCompat="@drawable/drink" />
 
-        <TextView
-            android:id="@+id/textViewUserEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+    <ImageButton
+        android:id="@+id/buttonExercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="467dp"
+        android:layout_marginEnd="165dp"
+        app:srcCompat="@drawable/exercise" />
 
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/buttonSleep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="467dp"
+        android:layout_marginEnd="108dp"
+        app:srcCompat="@drawable/sleep" />
+
+    <ImageButton
+        android:id="@+id/buttonSocial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="467dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="-43dp"
+        app:srcCompat="@drawable/social" />
+
+    <ImageButton
+        android:id="@+id/buttonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="467dp"
+        android:layout_marginEnd="0dp"
+        app:srcCompat="@drawable/logout" />
+
+    <TextView
+        android:id="@+id/textViewUserEmail"
+        android:textSize="28dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="59dp"
+        android:text="TextView" />
+
+
+
+
+
+
+
+
 </RelativeLayout>
