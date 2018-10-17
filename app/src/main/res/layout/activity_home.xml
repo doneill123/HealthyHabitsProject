@@ -10,6 +10,7 @@
 
     <ImageButton
         android:id="@+id/buttonHome"
+        android:text="@string/buttonHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -20,6 +21,7 @@
 
     <ImageButton
         android:id="@+id/buttonFood"
+        android:text="@string/buttonFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -30,6 +32,7 @@
 
     <ImageButton
         android:id="@+id/buttonDrink"
+        android:text="@string/buttonDrink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -40,6 +43,7 @@
 
     <ImageButton
         android:id="@+id/buttonExercise"
+        android:text="@string/buttonExercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -50,6 +54,7 @@
 
     <ImageButton
         android:id="@+id/buttonSleep"
+        android:text="@string/buttonSleep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -60,6 +65,7 @@
 
     <ImageButton
         android:id="@+id/buttonSocial"
+        android:text="@string/buttonSocial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
