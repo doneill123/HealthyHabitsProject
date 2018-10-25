@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "111319836703-oam79rd9s602fqdkqk2o74mla7bd4k8m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.danieloneill.healthyhabits",
+            "certificate_hash": "f25526a54426794e90a3426ef3b295cd81be5048"
+          }
+        },
+        {
           "client_id": "111319836703-68r66gu1kt6t3mc6h05ae2pg0hdgu4cr.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111319836703-68r66gu1kt6t3mc6h05ae2pg0hdgu4cr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

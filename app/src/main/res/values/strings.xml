@@ -6,10 +6,20 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="buttonHome"></string>
-    <string name="buttonFood"></string>
-    <string name="buttonDrink"></string>
-    <string name="buttonExercise"></string>
-    <string name="buttonSleep"></string>
-    <string name="buttonSocial"></string>
+    <string name="buttonHome">xml</string>
+    <string name="buttonFood">xml</string>
+    <string name="buttonDrink">xml</string>
+    <string name="buttonExercise">xml</string>
+    <string name="buttonSleep">xml</string>
+    <string name="buttonSocial">xml</string>
+    <array name = "Foods">
+        <item>Fruit</item>
+        <item>Vegetables</item>
+        <item>Bread</item>
+        <item>Meat</item>
+        <item>Fish</item>
+        <item>Dairy</item>
+        <item>Desserts</item>
+        <item>Snacks</item>
+    </array>
 </resources>
