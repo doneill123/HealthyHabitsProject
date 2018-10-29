@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".DrinkActivity">
+    tools:context=".SleepActivity">
 
     <ImageButton
         android:id="@+id/buttonHome"
@@ -105,12 +105,12 @@
         app:srcCompat="@drawable/logout" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Drink"
+        android:text="Sleep"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="111dp"
-        tools:layout_editor_absoluteY="32dp" />
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="61dp" />
 
 </android.support.constraint.ConstraintLayout>

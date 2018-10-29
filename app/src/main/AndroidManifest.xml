@@ -29,7 +29,10 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".FoodActivity" />
-        <activity android:name=".DrinkActivity"></activity>
+        <activity android:name=".DrinkActivity" />
+        <activity android:name=".ExerciseActivity" />
+        <activity android:name=".SleepActivity" />
+        <activity android:name=".SocialActivity"></activity>
     </application>
 
 </manifest>

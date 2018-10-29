@@ -19,11 +19,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageButton buttonHome;
     EditText editTextName;
     Button buttonAdd;
     Spinner spinnerFoods;
-
     DatabaseReference databaseFoods;
 
     @Override
@@ -37,7 +35,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(FoodActivity.this, HomeActivity.class));
             }
         });
-
+        
         databaseFoods = FirebaseDatabase.getInstance().getReference("Foods");
 
         editTextName = (EditText) findViewById(R.id.editTextName);
@@ -52,7 +50,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-        private void addFood(){
+    private void addFood(){
         String name = editTextName.getText().toString().trim();
         String category = spinnerFoods.getSelectedItem().toString();
         if(!TextUtils.isEmpty(name)){

@@ -28,6 +28,34 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        ImageButton buttonDrink = (ImageButton) findViewById(R.id.buttonDrink);
+        buttonDrink.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(HomeActivity.this, DrinkActivity.class));
+            }
+        });
+
+        ImageButton buttonExercise = (ImageButton) findViewById(R.id.buttonExercise);
+        buttonExercise.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(HomeActivity.this, ExerciseActivity.class));
+            }
+        });
+
+        ImageButton buttonSleep = (ImageButton) findViewById(R.id.buttonSleep);
+        buttonSleep.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(HomeActivity.this, SleepActivity.class));
+            }
+        });
+
+        ImageButton buttonSocial = (ImageButton) findViewById(R.id.buttonSocial);
+        buttonSocial.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(HomeActivity.this, SocialActivity.class));
+            }
+        });
+
         firebaseAuth = FirebaseAuth.getInstance();
 
         if(firebaseAuth.getCurrentUser() == null){
@@ -42,8 +70,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
     }
-
-
 
     @Override
     public void onClick(View view) {
