@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText editTextName;
+    EditText editTextCalorie;
     Button buttonAdd;
     Spinner spinnerFoods;
     DatabaseReference databaseFoods;
@@ -35,10 +36,11 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(FoodActivity.this, HomeActivity.class));
             }
         });
-        
+
         databaseFoods = FirebaseDatabase.getInstance().getReference("Foods");
 
         editTextName = (EditText) findViewById(R.id.editTextName);
+        editTextCalorie = (EditText) findViewById(R.id.editTextCalorie);
         buttonAdd = (Button) findViewById(R.id.buttonAddFood);
         spinnerFoods = (Spinner) findViewById(R.id.spinnerFoods);
 
@@ -52,11 +54,13 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
 
     private void addFood(){
         String name = editTextName.getText().toString().trim();
+        String calorieText = editTextCalorie.getText().toString().trim();
+        int calorie = Integer.parseInt(calorieText);
         String category = spinnerFoods.getSelectedItem().toString();
         if(!TextUtils.isEmpty(name)){
 
             String id = databaseFoods.push().getKey();
-            Foods foods = new Foods(id, name, category);
+            Foods foods = new Foods(id, name, calorie, category);
             databaseFoods.child(id).setValue(foods);
             Toast.makeText(this, "Food added", Toast.LENGTH_SHORT).show();
 
