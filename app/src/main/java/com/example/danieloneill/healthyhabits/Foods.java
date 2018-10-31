@@ -17,7 +17,6 @@ public class Foods {
     public Foods(String id, String name, String category) {
     }
 
-
     public String getFoodId() {
         return foodId;
     }

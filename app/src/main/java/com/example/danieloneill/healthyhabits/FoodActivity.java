@@ -37,6 +37,34 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        ImageButton buttonDrink = (ImageButton) findViewById(R.id.buttonDrink);
+        buttonDrink.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(FoodActivity.this, DrinkActivity.class));
+            }
+        });
+
+        ImageButton buttonExercise = (ImageButton) findViewById(R.id.buttonExercise);
+        buttonExercise.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(FoodActivity.this, ExerciseActivity.class));
+            }
+        });
+
+        ImageButton buttonSleep = (ImageButton) findViewById(R.id.buttonSleep);
+        buttonSleep.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(FoodActivity.this, SleepActivity.class));
+            }
+        });
+
+        ImageButton buttonSocial = (ImageButton) findViewById(R.id.buttonSocial);
+        buttonSocial.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(FoodActivity.this, SocialActivity.class));
+            }
+        });
+
         databaseFoods = FirebaseDatabase.getInstance().getReference("Foods");
 
         editTextName = (EditText) findViewById(R.id.editTextName);
