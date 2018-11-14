@@ -9,12 +9,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth firebaseAuth;
     private TextView textViewUserEmail;
     private ImageButton buttonLogout;
+    DatabaseReference databaseFoods;
     ImageButton buttonFood;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

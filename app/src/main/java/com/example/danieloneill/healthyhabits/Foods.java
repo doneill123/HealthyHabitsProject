@@ -7,14 +7,15 @@ public class Foods {
     int foodCalorie;
     String foodCategory;
 
-    public Foods(String foodId, String foodName, int foodCalorie, String foodCategory) {
-    this.foodId = foodId;
-    this.foodName = foodName;
-    this.foodCalorie = foodCalorie;
-    this.foodCategory = foodCategory;
+    public Foods(){
+
     }
 
-    public Foods(String id, String name, String category) {
+    public Foods(String foodId, String foodName, int foodCalorie, String foodCategory) {
+        this.foodId = foodId;
+        this.foodName = foodName;
+        this.foodCalorie = foodCalorie;
+        this.foodCategory = foodCategory;
     }
 
     public String getFoodId() {
@@ -25,7 +26,8 @@ public class Foods {
         return foodName;
     }
 
-    public int getFoodCalorie() { return foodCalorie; }
+    public int getFoodCalorie() {
+        return foodCalorie;}
 
     public String getFoodCategory() {
         return foodCategory;
