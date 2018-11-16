@@ -24,15 +24,6 @@ import java.util.List;
 
 public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText editTextName;
-    EditText editTextCalorie;
-    Button buttonAdd;
-    Spinner spinnerFoods;
-    DatabaseReference databaseFoods;
-
-    ListView listViewFoods;
-    List<Foods> foodsList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,73 +63,6 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(FoodActivity.this, SocialActivity.class));
             }
         });
-
-        databaseFoods = FirebaseDatabase.getInstance().getReference("Foods");
-
-        editTextName = (EditText) findViewById(R.id.editTextName);
-        editTextCalorie = (EditText) findViewById(R.id.editTextCalorie);
-        buttonAdd = (Button) findViewById(R.id.buttonAddFood);
-        spinnerFoods = (Spinner) findViewById(R.id.spinnerFoods);
-
-        listViewFoods = (ListView) findViewById(R.id.listViewFoods);
-        foodsList = new ArrayList<>();
-
-        buttonAdd.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addFood();
-            }
-        });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    databaseFoods.addValueEventListener(new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-
-            foodsList.clear();
-
-            for (DataSnapshot foodSnapshot : dataSnapshot.getChildren()) {
-                Foods foods = foodSnapshot.getValue(Foods.class);
-
-                foodsList.add(foods);
-            }
-
-            FoodList adapter = new FoodList(FoodActivity.this, foodsList);
-            listViewFoods.setAdapter(adapter);
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-
-        }
-
-    });
-
-}
-
-
-
-
-    private void addFood(){
-        String name = editTextName.getText().toString().trim();
-        String calorieText = editTextCalorie.getText().toString().trim();
-        int calorie = Integer.parseInt(calorieText);
-        String category = spinnerFoods.getSelectedItem().toString();
-
-        if(!TextUtils.isEmpty(name)){
-
-            String id = databaseFoods.push().getKey();
-            Foods foods = new Foods(id, name, calorie, category);
-            databaseFoods.child(id).setValue(foods);
-            Toast.makeText(this, "Food added", Toast.LENGTH_SHORT).show();
-
-        }else{
-            Toast.makeText(this, "Please enter a food and calorie amount", Toast.LENGTH_LONG).show();
-        }
     }
 
     @Override
