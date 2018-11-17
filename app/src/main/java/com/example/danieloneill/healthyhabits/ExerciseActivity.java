@@ -4,9 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class ExerciseActivity extends AppCompatActivity {
+public class ExerciseActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private FirebaseAuth firebaseAuth;
+    private ImageButton buttonLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,5 +53,25 @@ public class ExerciseActivity extends AppCompatActivity {
                 startActivity(new Intent(ExerciseActivity.this, SocialActivity.class));
             }
         });
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() == null) {
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
+        buttonLogout.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == buttonLogout) {
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
+        }
     }
 }

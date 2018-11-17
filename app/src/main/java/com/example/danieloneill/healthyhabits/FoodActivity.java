@@ -1,28 +1,18 @@
 package com.example.danieloneill.healthyhabits;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import java.util.ArrayList;
-import java.util.List;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private FirebaseAuth firebaseAuth;
+    private ImageButton buttonLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +53,25 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(FoodActivity.this, SocialActivity.class));
             }
         });
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() == null){
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
+        buttonLogout.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View v) {
-
-
+    public void onClick(View view) {
+        if(view == buttonLogout){
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent (this, LoginActivity.class));
+        }
     }
 }
