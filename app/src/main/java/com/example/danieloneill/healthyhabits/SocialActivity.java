@@ -1,23 +1,43 @@
 package com.example.danieloneill.healthyhabits;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.text.format.DateFormat;
+import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class SocialActivity extends AppCompatActivity implements View.OnClickListener{
+public class SocialActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth firebaseAuth;
     private ImageButton buttonLogout;
+    private FirebaseListAdapter<ChatMessage> adapter;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social);
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText input = (EditText) findViewById(R.id.input);
+                FirebaseDatabase.getInstance().getReference().push().setValue(new ChatMessage(input.getText().toString(),
+                        FirebaseAuth.getInstance().getCurrentUser().getEmail()));
+                input.setText("");
+            }
+        });
 
         ImageButton buttonHome = (ImageButton) findViewById(R.id.buttonHome);
         buttonHome.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +84,30 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
 
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
+
+        displayChatMessage();
     }
+
+    private void displayChatMessage() {
+
+        ListView listOfMessage = (ListView) findViewById(R.id.list_of_messages);
+        adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class, R.layout.list_messages, FirebaseDatabase.getInstance().getReference()) {
+            @Override
+            protected void populateView(View v, ChatMessage model, int position) {
+
+                TextView messageText,messageUser,messageTime;
+                messageText = (TextView) v.findViewById(R.id.message_text);
+                messageUser = (TextView) v.findViewById(R.id.message_user);
+                messageTime = (TextView) v.findViewById(R.id.message_time);
+
+                messageText.setText(model.getMessageText());
+                messageUser.setText(model.getMessageUser());
+                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
+            }
+        };
+        listOfMessage.setAdapter(adapter);
+    }
+
 
     @Override
     public void onClick(View view) {

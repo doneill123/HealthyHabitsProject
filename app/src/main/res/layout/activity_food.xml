@@ -8,6 +8,8 @@
     tools:context=".FoodActivity">
 
 
+
+
     <ImageButton
         android:id="@+id/buttonHome"
         android:layout_width="53dp"
@@ -17,7 +19,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
-        android:text="@string/buttonHome"
+        android:contentDescription="TODO" android:text="@string/buttonHome"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/home" />
@@ -31,7 +33,7 @@
         android:layout_marginStart="56dp"
         android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
-        android:text="@string/buttonFood"
+        android:contentDescription="TODO" android:text="@string/buttonFood"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/buttonHome"
         app:srcCompat="@drawable/food" />
@@ -45,7 +47,7 @@
         android:layout_marginStart="124dp"
         android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
-        android:text="@string/buttonDrink"
+        android:contentDescription="TODO" android:text="@string/buttonDrink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/buttonHome"
         app:srcCompat="@drawable/drink" />
@@ -59,7 +61,7 @@
         android:layout_marginStart="184dp"
         android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
-        android:text="@string/buttonExercise"
+        android:contentDescription="TODO" android:text="@string/buttonExercise"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/buttonHome"
         app:srcCompat="@drawable/exercise" />
@@ -73,7 +75,7 @@
         android:layout_marginEnd="112dp"
         android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
-        android:text="@string/buttonSleep"
+        android:contentDescription="TODO" android:text="@string/buttonSleep"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonLogout"
         app:srcCompat="@drawable/sleep" />
@@ -87,7 +89,7 @@
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
-        android:text="@string/buttonSocial"
+        android:contentDescription="TODO" android:text="@string/buttonSocial"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonLogout"
         app:srcCompat="@drawable/social" />
@@ -103,8 +105,19 @@
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/logout" />
+        android:contentDescription="TODO" app:srcCompat="@drawable/logout" />
 
-
+    <View
+        android:id="@+id/divider"
+        android:layout_width="371dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="64dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:backgroundTint="3b14a0" />
 
 </android.support.constraint.ConstraintLayout>

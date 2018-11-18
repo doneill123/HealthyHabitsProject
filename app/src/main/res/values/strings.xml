@@ -12,6 +12,14 @@
     <string name="buttonExercise">xml</string>
     <string name="buttonSleep">xml</string>
     <string name="buttonSocial">xml</string>
+    <string name="signUp_title">Sign Up</string>
+    <string name="signIn_title">Sign In</string>
+    <string name="home_title">Home</string>
+    <string name="food_title">Food</string>
+    <string name="drink_title">Drink</string>
+    <string name="exercise_title">Exercise</string>
+    <string name="sleep_title">Sleep</string>
+    <string name="social_title">Social</string>
     <array name="Foods">
         <item>Fruit</item>
         <item>Vegetables</item>
