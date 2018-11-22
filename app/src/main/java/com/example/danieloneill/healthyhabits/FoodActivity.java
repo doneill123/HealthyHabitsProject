@@ -1,8 +1,11 @@
 package com.example.danieloneill.healthyhabits;
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -13,11 +16,16 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
 
     private FirebaseAuth firebaseAuth;
     private ImageButton buttonLogout;
+    private SectionsPageAdapter mSectionsPageAdapter;
+    private ViewPager mViewPager;
+    private static final String TAG = "FoodActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
+        Log.d(TAG, "onCreate: Starting.");
+
 
         ImageButton buttonHome = (ImageButton) findViewById(R.id.buttonHome);
         buttonHome.setOnClickListener(new OnClickListener() {
@@ -64,6 +72,22 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
+
+
+        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
+
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        setUpViewPager(mViewPager);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+    }
+
+    private void setUpViewPager(ViewPager viewPager){
+        SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new Tab1Fragment(), "Tab1");
+        adapter.addFragment(new Tab2Fragment(), "Tab2");
+        adapter.addFragment(new Tab3Fragment(), "Tab3");
+        viewPager.setAdapter(adapter);
     }
 
     @Override

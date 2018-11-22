@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:label="@string/signUp_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,19 +27,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
-            android:label="@string/signIn_title"/>
-        <activity android:name=".HomeActivity"
-            android:label="@string/home_title"/>
-        <activity android:name=".FoodActivity"
-            android:label="@string/food_title"/>
-        <activity android:name=".DrinkActivity"
-            android:label="@string/drink_title"/>
-        <activity android:name=".ExerciseActivity"
-            android:label="@string/exercise_title"/>
-        <activity android:name=".SleepActivity"
-            android:label="@string/sleep_title"/>
-        <activity android:name=".SocialActivity"
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/signIn_title" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/home_title" />
+        <activity
+            android:name=".FoodActivity"
+            android:label="@string/food_title" />
+        <activity
+            android:name=".DrinkActivity"
+            android:label="@string/drink_title" />
+        <activity
+            android:name=".ExerciseActivity"
+            android:label="@string/exercise_title" />
+        <activity
+            android:name=".SleepActivity"
+            android:label="@string/sleep_title" />
+        <activity
+            android:name=".SocialActivity"
             android:label="@string/social_title" />
     </application>
 

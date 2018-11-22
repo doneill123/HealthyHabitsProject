@@ -1,7 +1,6 @@
 package com.example.danieloneill.healthyhabits;
 
 import android.text.Editable;
-
 import java.util.Date;
 
 public class ChatMessage {
