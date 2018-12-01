@@ -324,7 +324,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="224dp"
         android:layout_marginTop="20dp"
-        android:text="2750"
+        android:text="2500"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
