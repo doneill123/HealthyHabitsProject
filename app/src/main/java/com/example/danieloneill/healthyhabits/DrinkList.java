@@ -1,4 +1,4 @@
-/*package com.example.danieloneill.healthyhabits;
+package com.example.danieloneill.healthyhabits;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
@@ -40,4 +40,3 @@ public class DrinkList extends ArrayAdapter<Drinks> {
         return listViewItem;
     }
 }
-*/

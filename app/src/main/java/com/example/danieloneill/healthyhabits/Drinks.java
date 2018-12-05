@@ -1,4 +1,4 @@
-/*package com.example.danieloneill.healthyhabits;
+package com.example.danieloneill.healthyhabits;
 
 public class Drinks {
 
@@ -33,4 +33,3 @@ public class Drinks {
         return drinkCategory;
     }
 }
-*/
