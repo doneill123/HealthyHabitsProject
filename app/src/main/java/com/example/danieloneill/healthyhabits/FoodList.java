@@ -35,7 +35,7 @@ public class FoodList extends ArrayAdapter<Foods> {
 
         textViewName.setText(foods.getFoodName());
         String cal = String.valueOf(foods.getFoodCalorie());
-       textViewCalorie.setText(cal);
+        textViewCalorie.setText(cal);
 
         return listViewItem;
     }

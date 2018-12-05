@@ -34,6 +34,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     ListView listViewFoods;
     List<Foods> foodsList;
 
+    /*
+    DatabaseReference databaseDrinks;
+    EditText editTextDrinkName;
+    EditText editTextDrinkCalorie;
+    Spinner spinnerDrinks;
+    ListView listViewDrinks;
+    List<Drinks> drinksList;
+    */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,8 +83,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        this.getWindow().setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() == null){
             finish();
@@ -86,6 +93,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
+
         databaseFoods = FirebaseDatabase.getInstance().getReference("Foods");
         editTextName = (EditText) findViewById(R.id.editTextName);
         editTextCalorie = (EditText) findViewById(R.id.editTextCalorie);
@@ -93,11 +101,22 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         spinnerFoods = (Spinner) findViewById(R.id.spinnerFoods);
         listViewFoods = (ListView) findViewById(R.id.listViewFoods);
         foodsList = new ArrayList<>();
-        buttonAdd.setOnClickListener(new OnClickListener() {
 
+        /*
+        databaseDrinks = FirebaseDatabase.getInstance().getReference("Drinks");
+        editTextDrinkName = (EditText) findViewById(R.id.editTextDrinkName);
+        editTextDrinkCalorie = (EditText) findViewById(R.id.editTextDrinkCalorie);
+        buttonAdd = (Button) findViewById(R.id.buttonAddDrink);
+        spinnerDrinks = (Spinner) findViewById(R.id.spinnerDrinks);
+        listViewDrinks = (ListView) findViewById(R.id.listViewDrinks);
+        drinksList = new ArrayList<>();
+        */
+
+        buttonAdd.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 addFood();
+                //addDrink();
             }
         });
     }
@@ -122,6 +141,27 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+
+
+        /*
+        databaseDrinks.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                drinksList.clear();
+                for (DataSnapshot drinkSnapshot : dataSnapshot.getChildren()) {
+                    Drinks drinks = drinkSnapshot.getValue(Drinks.class);
+                    drinksList.add(drinks);
+                }
+                DrinkList adapter = new DrinkList(HomeActivity.this, drinksList);
+                listViewDrinks.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        */
+
     }
 
     private void addFood(){
@@ -137,9 +177,28 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             databaseFoods.child(id).setValue(foods);
             Toast.makeText(this, "Food added", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this, "Please enter a food and calorie amount", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Enter food & calorie total", Toast.LENGTH_SHORT).show();
         }
     }
+
+    /*
+    private void addDrink(){
+        String name = editTextDrinkName.getText().toString().trim();
+        String calorieDrinkText = editTextDrinkCalorie.getText().toString().trim();
+        int calorie = Integer.parseInt(calorieDrinkText);
+        String category = spinnerDrinks.getSelectedItem().toString();
+
+        if(!TextUtils.isEmpty(name)){
+
+            String id = databaseDrinks.push().getKey();
+            Drinks drinks = new Drinks(id, name, calorie, category);
+            databaseDrinks.child(id).setValue(drinks);
+            Toast.makeText(this, "Drink added", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "Enter drink & calorie total", Toast.LENGTH_SHORT).show();
+        }
+    }
+    */
 
     @Override
     public void onClick(View view) {

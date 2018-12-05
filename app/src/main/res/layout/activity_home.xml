@@ -124,11 +124,11 @@
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="364dp"
+        android:layout_marginBottom="408dp"
         android:ems="10"
         android:hint="Enter Food"
         android:inputType="textPersonName"
-        android:textSize="13dp"
+        android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonFood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -140,11 +140,11 @@
         android:layout_height="38dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="332dp"
+        android:layout_marginBottom="376dp"
         android:ems="10"
         android:hint="Enter Calorie Amount"
         android:inputType="number"
-        android:textSize="13dp"
+        android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -153,10 +153,10 @@
     <Spinner
         android:id="@+id/spinnerFoods"
         android:layout_width="180dp"
-        android:layout_height="20dp"
+        android:layout_height="23dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="308dp"
+        android:layout_marginBottom="352dp"
         android:entries="@array/Foods"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -166,24 +166,23 @@
     <Button
         android:id="@+id/buttonAddFood"
         android:layout_width="185dp"
-        android:layout_height="35dp"
+        android:layout_height="39dp"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="268dp"
+        android:layout_marginBottom="312dp"
         android:text="Add Food"
+        android:textAllCaps="false"
+        android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
         android:id="@+id/listViewFoods"
         android:layout_width="181dp"
-        android:layout_height="197dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="72dp"
+        android:layout_height="223dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="80dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -192,7 +191,7 @@
         android:layout_height="29dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="412dp"
+        android:layout_marginBottom="456dp"
         android:gravity="center"
         android:text="Foods"
         android:textSize="20sp"
@@ -204,7 +203,7 @@
         android:layout_width="175dp"
         android:layout_height="28dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="412dp"
+        android:layout_marginBottom="460dp"
         android:gravity="center"
         android:text="Drinks"
         android:textSize="20sp"
@@ -214,13 +213,13 @@
     <EditText
         android:id="@+id/editTextDrinkName"
         android:layout_width="174dp"
-        android:layout_height="37dp"
+        android:layout_height="41dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="372dp"
+        android:layout_marginBottom="416dp"
         android:ems="10"
         android:hint="Enter Drink"
         android:inputType="textPersonName"
-        android:textSize="13sp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -229,39 +228,41 @@
         android:layout_width="173dp"
         android:layout_height="38dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="332dp"
+        android:layout_marginBottom="376dp"
         android:ems="10"
         android:hint="Enter Calorie Amount"
         android:inputType="textPersonName"
-        android:textSize="13sp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Spinner
-        android:id="@+id/SpinnerDrinks"
+        android:id="@+id/spinnerDrinks"
         android:layout_width="173dp"
-        android:layout_height="19dp"
+        android:layout_height="22dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="308dp"
+        android:layout_marginBottom="352dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"></Spinner>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/buttonAddDrink"
         android:layout_width="176dp"
-        android:layout_height="35dp"
+        android:layout_height="39dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="268dp"
+        android:layout_marginBottom="312dp"
         android:text="Add Drink"
+        android:textAllCaps="false"
+        android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <android.support.v7.widget.RecyclerView
+    <ListView
         android:id="@+id/listViewDrinks"
         android:layout_width="176dp"
-        android:layout_height="196dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="72dp"
+        android:layout_height="221dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -288,7 +289,7 @@
     <TextView
         android:id="@+id/textView9"
         android:layout_width="194dp"
-        android:layout_height="wrap_content"
+        android:layout_height="31dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="120dp"
         android:text="Remaining Calories:"

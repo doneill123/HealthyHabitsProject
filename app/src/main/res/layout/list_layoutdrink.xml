@@ -7,23 +7,23 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textViewName"
+        android:id="@+id/textViewDrinkName"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="TextViewDrink"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewCalorie"
+        android:id="@+id/textViewDrinkCalorie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
-        android:text="TextView"
+        android:text="TextViewDrink"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
