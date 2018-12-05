@@ -34,7 +34,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     ListView listViewFoods;
     List<Foods> foodsList;
 
-
     DatabaseReference databaseDrinks;
     EditText editTextDrinkName;
     EditText editTextDrinkCalorie;
@@ -42,12 +41,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     ListView listViewDrinks;
     List<Drinks> drinksList;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //Buttons for navigation through the application
         ImageButton buttonFood = (ImageButton) findViewById(R.id.buttonFood);
         buttonFood.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
@@ -125,6 +124,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onStart() {
         super.onStart();
 
+        //Connecting the list of foods from Firebase onto the listview in activity_home.xml
         databaseFoods.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -164,6 +164,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //Allowing user to add a food
     private void addFood(){
         String name = editTextName.getText().toString().trim();
         String calorieText = editTextCalorie.getText().toString().trim();
@@ -177,11 +178,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             databaseFoods.child(id).setValue(foods);
             Toast.makeText(this, "Food added", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this, "Enter food & calorie total", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Unsuccessful", Toast.LENGTH_SHORT).show();
         }
     }
 
     /*
+    //Allowing user to add a drink
     private void addDrink(){
         String name = editTextDrinkName.getText().toString().trim();
         String calorieDrinkText = editTextDrinkCalorie.getText().toString().trim();
@@ -200,6 +202,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
     */
 
+    //When a user clicks the logout button
     @Override
     public void onClick(View view) {
 

@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textViewSignIn.setOnClickListener(this);
     }
 
+    //Text views to allow a user to register
     private void registerUser(){
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
@@ -55,19 +56,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (TextUtils.isEmpty(password)){
-            Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT)
+                    .show();
             return;
         }
 
+        //Firebase checks to see if the registered details are able to be accepted
         firebaseAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                                 finish();
-                                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                                startActivity(new Intent(getApplicationContext(),
+                                        HomeActivity.class));
                         }else{
-                            Toast.makeText(MainActivity.this, "Failed to register. Please try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Failed to register. " +
+                                    "Please try again", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

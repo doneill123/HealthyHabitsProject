@@ -29,7 +29,8 @@ public class DrinkList extends ArrayAdapter<Drinks> {
         View listViewItem = inflater.inflate(R.layout.list_layoutdrink,null, true);
 
         TextView textViewDrinkName = (TextView) listViewItem.findViewById(R.id.textViewDrinkName);
-        TextView textViewDrinkCalorie = (TextView) listViewItem.findViewById(R.id.textViewDrinkCalorie);
+        TextView textViewDrinkCalorie = (TextView) listViewItem.findViewById(R.id.
+                textViewDrinkCalorie);
 
         Drinks drinks = drinksList.get(position);
 

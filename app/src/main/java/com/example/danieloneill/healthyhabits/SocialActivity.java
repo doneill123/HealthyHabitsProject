@@ -33,12 +33,14 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View view) {
                 EditText input = (EditText) findViewById(R.id.input);
-                FirebaseDatabase.getInstance().getReference().push().setValue(new ChatMessage(input.getText().toString(),
+                FirebaseDatabase.getInstance().getReference().push().setValue(new ChatMessage
+                        (input.getText().toString(),
                         FirebaseAuth.getInstance().getCurrentUser().getEmail()));
                 input.setText("");
             }
         });
 
+        //Buttons for navigation through the application
         ImageButton buttonHome = (ImageButton) findViewById(R.id.buttonHome);
         buttonHome.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -63,7 +65,8 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
         ImageButton buttonExercise = (ImageButton) findViewById(R.id.buttonExercise);
         buttonExercise.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(SocialActivity.this, ExerciseActivity.class));
+                startActivity(new Intent(SocialActivity.this, ExerciseActivity.class))
+                ;
             }
         });
 
@@ -90,8 +93,10 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
 
     private void displayChatMessage() {
 
+        //the listview from list_of_messages set the layout of messages to be sent
         ListView listOfMessage = (ListView) findViewById(R.id.list_of_messages);
-        adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class, R.layout.list_messages, FirebaseDatabase.getInstance().getReference()) {
+        adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class,
+                R.layout.list_messages, FirebaseDatabase.getInstance().getReference()) {
             @Override
             protected void populateView(View v, ChatMessage model, int position) {
 
@@ -102,13 +107,14 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
 
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
-                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
+                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
+                        model.getMessageTime()));
             }
         };
         listOfMessage.setAdapter(adapter);
     }
 
-
+    //When a user clicks the logout button
     @Override
     public void onClick(View view) {
         if (view == buttonLogout) {

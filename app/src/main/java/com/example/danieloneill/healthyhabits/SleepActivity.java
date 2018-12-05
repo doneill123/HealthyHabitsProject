@@ -19,6 +19,7 @@ public class SleepActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep);
 
+        //Buttons for navigation through the application
         ImageButton buttonHome = (ImageButton) findViewById(R.id.buttonHome);
         buttonHome.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -66,6 +67,7 @@ public class SleepActivity extends AppCompatActivity implements View.OnClickList
         buttonLogout.setOnClickListener(this);
     }
 
+    //When a user clicks the logout button
     @Override
     public void onClick(View view) {
         if (view == buttonLogout) {

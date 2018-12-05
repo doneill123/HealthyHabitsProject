@@ -26,6 +26,7 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_exercise);
         Log.d(TAG, "onCreate: Starting.");
 
+        //Buttons for navigation through the application
         ImageButton buttonHome = (ImageButton) findViewById(R.id.buttonHome);
         buttonHome.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -57,7 +58,8 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         ImageButton buttonSocial = (ImageButton) findViewById(R.id.buttonSocial);
         buttonSocial.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(ExerciseActivity.this, SocialActivity.class));
+                startActivity(new Intent(ExerciseActivity.this, SocialActivity.class))
+                ;
             }
         });
 
@@ -80,6 +82,7 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         tabLayout.setupWithViewPager(mViewPager);
     }
 
+    //Fragments created
     private void setUpViewPager(ViewPager viewPager){
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab5Fragment(), "Easy");
@@ -88,6 +91,7 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         viewPager.setAdapter(adapter);
     }
 
+    //When a user clicks the logout button
     @Override
     public void onClick(View view) {
         if (view == buttonLogout) {

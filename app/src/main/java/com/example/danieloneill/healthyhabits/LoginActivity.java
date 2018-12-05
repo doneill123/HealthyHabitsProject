@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        //If the details entered match a user on Firebase, the user will view the home page
         if(firebaseAuth.getCurrentUser() != null){
             finish();
             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
@@ -55,10 +56,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         if (TextUtils.isEmpty(password)){
-            Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT)
+                    .show();
             return;
         }
 
+        //Firebase checks to see if the entered details already exist
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override

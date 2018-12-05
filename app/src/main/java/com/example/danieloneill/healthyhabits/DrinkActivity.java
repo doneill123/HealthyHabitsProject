@@ -26,6 +26,7 @@ public class DrinkActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_drink);
         Log.d(TAG, "onCreate: Starting.");
 
+        //Buttons for navigation through the application
         ImageButton buttonHome = (ImageButton) findViewById(R.id.buttonHome);
         buttonHome.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -81,6 +82,7 @@ public class DrinkActivity extends AppCompatActivity implements View.OnClickList
         tabLayout.setupWithViewPager(mViewPager);
     }
 
+    //Fragments created
     private void setUpViewPager(ViewPager viewPager){
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab3Fragment(), "Alcoholic");
@@ -88,6 +90,7 @@ public class DrinkActivity extends AppCompatActivity implements View.OnClickList
         viewPager.setAdapter(adapter);
     }
 
+    //When a user clicks the logout button
     @Override
     public void onClick(View view) {
         if (view == buttonLogout) {

@@ -26,6 +26,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_food);
         Log.d(TAG, "onCreate: Starting.");
 
+        //Buttons for navigation through the application
         ImageButton buttonHome = (ImageButton) findViewById(R.id.buttonHome);
         buttonHome.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -81,6 +82,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         tabLayout.setupWithViewPager(mViewPager);
     }
 
+    //Fragments created
     private void setUpViewPager(ViewPager viewPager){
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1Fragment(), "Health");
@@ -88,6 +90,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         viewPager.setAdapter(adapter);
     }
 
+    //When a user clicks the logout button
     @Override
     public void onClick(View view) {
         if(view == buttonLogout){
