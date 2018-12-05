@@ -26,7 +26,6 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_food);
         Log.d(TAG, "onCreate: Starting.");
 
-
         ImageButton buttonHome = (ImageButton) findViewById(R.id.buttonHome);
         buttonHome.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -63,7 +62,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         firebaseAuth = FirebaseAuth.getInstance();
-        if(firebaseAuth.getCurrentUser() == null){
+        if (firebaseAuth.getCurrentUser() == null){
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
@@ -84,9 +83,8 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setUpViewPager(ViewPager viewPager){
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Tab1Fragment(), "Tab1");
-        adapter.addFragment(new Tab2Fragment(), "Tab2");
-        adapter.addFragment(new Tab3Fragment(), "Tab3");
+        adapter.addFragment(new Tab1Fragment(), "Health");
+        adapter.addFragment(new Tab2Fragment(), "Budget");
         viewPager.setAdapter(adapter);
     }
 

@@ -34,14 +34,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     ListView listViewFoods;
     List<Foods> foodsList;
 
-    /*
+
     DatabaseReference databaseDrinks;
     EditText editTextDrinkName;
     EditText editTextDrinkCalorie;
     Spinner spinnerDrinks;
     ListView listViewDrinks;
     List<Drinks> drinksList;
-    */
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

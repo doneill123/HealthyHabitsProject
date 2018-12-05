@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.annotation.Nullable;
 
-public class Tab2Fragment extends Fragment {
-    private static final String TAG = "Tab2Fragment";
+public class Tab6Fragment extends Fragment {
+    private static final String TAG = "Tab6Fragment";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab2_fragment,container,false);
+        View view = inflater.inflate(R.layout.tab6_fragment,container,false);
 
         return view;
     }

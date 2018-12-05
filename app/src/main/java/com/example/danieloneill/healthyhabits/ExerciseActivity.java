@@ -1,8 +1,11 @@
 package com.example.danieloneill.healthyhabits;
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -13,11 +16,15 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
 
     private FirebaseAuth firebaseAuth;
     private ImageButton buttonLogout;
+    private SectionsPageAdapter mSectionsPageAdapter;
+    private ViewPager mViewPager;
+    private static final String TAG = "ExerciseActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise);
+        Log.d(TAG, "onCreate: Starting.");
 
         ImageButton buttonHome = (ImageButton) findViewById(R.id.buttonHome);
         buttonHome.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +62,7 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         });
 
         firebaseAuth = FirebaseAuth.getInstance();
-        if (firebaseAuth.getCurrentUser() == null) {
+        if (firebaseAuth.getCurrentUser() == null){
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
@@ -64,6 +71,21 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
 
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
+
+        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
+
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        setUpViewPager(mViewPager);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+    }
+
+    private void setUpViewPager(ViewPager viewPager){
+        SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new Tab5Fragment(), "Easy");
+        adapter.addFragment(new Tab6Fragment(), "Intermediate");
+        adapter.addFragment(new Tab7Fragment(), "Hard");
+        viewPager.setAdapter(adapter);
     }
 
     @Override

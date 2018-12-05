@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.support.annotation.Nullable;
 
 public class Tab3Fragment extends Fragment {
-    private static final String TAG = "Tab1Fragment";
+    private static final String TAG = "Tab3Fragment";
 
     @Nullable
     @Override

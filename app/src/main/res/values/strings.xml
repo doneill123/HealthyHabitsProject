@@ -37,6 +37,10 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="tab_text_3">Tab 3</string>
+    <string name="tab_text_4">Tab 4</string>
+    <string name="tab_text_5">Tab 5</string>
+    <string name="tab_text_6">Tab 6</string>
+    <string name="tab_text_7">Tab 7</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_test">Test</string>
     <array name="Drinks">

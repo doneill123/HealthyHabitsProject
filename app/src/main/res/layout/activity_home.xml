@@ -128,7 +128,7 @@
         android:ems="10"
         android:hint="Enter Food"
         android:inputType="textPersonName"
-        android:textSize="17dp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonFood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -144,7 +144,7 @@
         android:ems="10"
         android:hint="Enter Calorie Amount"
         android:inputType="number"
-        android:textSize="17dp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -171,7 +171,7 @@
         android:layout_marginBottom="312dp"
         android:text="Add Food"
         android:textAllCaps="false"
-        android:textSize="17dp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -254,7 +254,7 @@
         android:layout_marginBottom="312dp"
         android:text="Add Drink"
         android:textAllCaps="false"
-        android:textSize="17dp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
