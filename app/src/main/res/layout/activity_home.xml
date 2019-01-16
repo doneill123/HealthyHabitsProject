@@ -104,20 +104,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="TODO" app:srcCompat="@drawable/logout" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="195dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="212dp"
-        android:text="Your Calorie Total is:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="180dp"
@@ -143,7 +129,7 @@
         android:layout_marginBottom="376dp"
         android:ems="10"
         android:hint="Enter Calorie Amount"
-        android:inputType="number"
+        android:digits="0123456789"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -232,7 +218,7 @@
         android:layout_marginBottom="376dp"
         android:ems="10"
         android:hint="Enter Calorie Amount"
-        android:inputType="textPersonName"
+        android:digits="0123456789"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -268,70 +254,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewCalorieTotal"
-        android:layout_width="95dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="68dp"
-        android:text="TextView"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="194dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="120dp"
-        android:text="Remaining Calories:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewRemaningCalories"
-        android:layout_width="95dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="120dp"
-        android:text="TextView"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="178dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
-        android:text="Daily Calorie Intake:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="115dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="20dp"
-        android:text="2500"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <View
         android:id="@+id/divider"
         android:layout_width="371dp"
@@ -344,5 +266,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:backgroundTint="3b14a0" />
+
+    <ProgressBar
+        android:id="@+id/pgbCalorieProgress"
+        style="?android:progressBarStyleHorizontal"
+        android:layout_width="177dp"
+        android:layout_height="179dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:progress="2500"
+        android:progressDrawable="@drawable/circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
