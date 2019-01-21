@@ -5,12 +5,18 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Vector;
 
 public class ExerciseActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -19,6 +25,11 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
     private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
     private static final String TAG = "ExerciseActivity";
+
+
+    RecyclerView recyclerView;
+    Vector<YoutubeVideos> youtubeVideos = new Vector<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,21 +85,18 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
 
-        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        setUpViewPager(mViewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-    }
 
-    //Fragments created
-    private void setUpViewPager(ViewPager viewPager){
-        SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Tab5Fragment(), "Easy");
-        adapter.addFragment(new Tab6Fragment(), "Intermediate");
-        adapter.addFragment(new Tab7Fragment(), "Hard");
-        viewPager.setAdapter(adapter);
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager (new LinearLayoutManager(this));
+        youtubeVideos.add(new YoutubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/Umu4cxTPaC8\" frameborder=\"0\" allowfullscreen></iframe>") );
+        youtubeVideos.add(new YoutubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/OvDtS4WEL2M\" frameborder=\"0\" allowfullscreen></iframe>") );
+        YoutubeVideoAdapter videoAdapter = new YoutubeVideoAdapter(youtubeVideos);
+        recyclerView.setAdapter(videoAdapter);
+
+
     }
 
     //When a user clicks the logout button
