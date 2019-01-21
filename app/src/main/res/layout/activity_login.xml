@@ -33,25 +33,29 @@
         <Button
             android:id="@+id/buttonSignIn"
             android:text="Login "
+            android:layout_margin="15dp"
+            android:textAllCaps="false"
+            android:textSize="17dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textViewSignUp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="34dp"
             android:text="Don't have an account? Sign Up Here"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="17dp" />
 
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="236dp"
-        android:layout_height="139dp"
+        android:layout_width="267dp"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="3dp"
-        android:contentDescription="TODO" app:srcCompat="@mipmap/logo" />
+        android:layout_marginTop="57dp"
+        app:srcCompat="@drawable/healthy_habits_logo" />
 
 </RelativeLayout>
