@@ -48,12 +48,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String password = editTextPassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Email field is empty", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (TextUtils.isEmpty(password)){
-            Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "Password field is empty", Toast.LENGTH_SHORT)
                     .show();
             return;
         }
@@ -66,6 +66,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         if (task.isSuccessful()){
                             finish();
+                            Toast.makeText(getApplicationContext(), "Logged in",
+                                    Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         }
                     }

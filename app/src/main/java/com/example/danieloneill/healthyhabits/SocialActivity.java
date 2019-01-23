@@ -14,6 +14,7 @@ import android.text.format.DateFormat;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SocialActivity extends AppCompatActivity implements View.OnClickListener {
@@ -22,6 +23,8 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
     private ImageButton buttonLogout;
     private FirebaseListAdapter<ChatMessage> adapter;
     FloatingActionButton fab;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference databaseMessages = database.getReference("Messages");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +90,8 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
 
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
+
+        databaseMessages = FirebaseDatabase.getInstance().getReference("Messages");
 
         displayChatMessage();
     }

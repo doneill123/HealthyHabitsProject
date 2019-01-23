@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -65,6 +70,32 @@ public class SleepActivity extends AppCompatActivity implements View.OnClickList
 
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
+
+        Button reset = (Button)findViewById(R.id.buttonReset);
+    }
+
+    public void avgFunction(View v)
+    {
+        EditText a = (EditText)findViewById(R.id.editTextAverage1);
+        EditText b = (EditText)findViewById(R.id.editTextAverage2);
+        EditText c = (EditText)findViewById(R.id.editTextAverage3);
+        EditText d = (EditText)findViewById(R.id.editTextAverage4);
+        EditText e = (EditText)findViewById(R.id.editTextAverage5);
+        EditText f = (EditText)findViewById(R.id.editTextAverage6);
+        EditText g = (EditText)findViewById(R.id.editTextAverage7);
+        TextView t = (TextView)findViewById(R.id.textViewAvg);
+        Button btn = (Button)findViewById(R.id.buttonAvg);
+
+        int num1 = Integer.parseInt(a.getText().toString());
+        int num2 = Integer.parseInt(b.getText().toString());
+        int num3 = Integer.parseInt(c.getText().toString());
+        int num4 = Integer.parseInt(d.getText().toString());
+        int num5 = Integer.parseInt(e.getText().toString());
+        int num6 = Integer.parseInt(f.getText().toString());
+        int num7 = Integer.parseInt(g.getText().toString());
+        double avg = (num1 + num2 + num3 + num4 + num5 + num6 + num7)/7;
+
+        t.setText(Double.toString(avg));
     }
 
     //When a user clicks the logout button

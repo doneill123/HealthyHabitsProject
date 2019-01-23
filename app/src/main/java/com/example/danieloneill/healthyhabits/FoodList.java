@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import java.util.List;
 
 public class FoodList extends ArrayAdapter<Foods> {
@@ -32,6 +31,7 @@ public class FoodList extends ArrayAdapter<Foods> {
         TextView textViewCalorie = (TextView) listViewItem.findViewById(R.id.textViewCalorie);
 
         Foods foods = foodsList.get(position);
+        //ProgressBar pb = (ProgressBar) view.findViewById(R.id.pgbCalorieProgress);
 
         textViewName.setText(foods.getFoodName());
         String cal = String.valueOf(foods.getFoodCalorie());

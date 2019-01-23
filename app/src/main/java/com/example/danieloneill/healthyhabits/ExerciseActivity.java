@@ -91,8 +91,9 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager (new LinearLayoutManager(this));
-        youtubeVideos.add(new YoutubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/Umu4cxTPaC8\" frameborder=\"0\" allowfullscreen></iframe>") );
-        youtubeVideos.add(new YoutubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/OvDtS4WEL2M\" frameborder=\"0\" allowfullscreen></iframe>") );
+        youtubeVideos.add(new YoutubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"" +
+                "https://www.youtube.com/embed/2U7hY_523eQ\" frameborder=\"0\" allowfullscreen><" +
+                "/iframe>") );
         YoutubeVideoAdapter videoAdapter = new YoutubeVideoAdapter(youtubeVideos);
         recyclerView.setAdapter(videoAdapter);
 

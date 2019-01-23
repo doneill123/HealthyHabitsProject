@@ -144,6 +144,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
         /*
+        //Connecting the list of foods from Firebase onto the listview in activity_home.xml
         databaseDrinks.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -172,13 +173,28 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         String category = spinnerFoods.getSelectedItem().toString();
 
         if(!TextUtils.isEmpty(name)){
-
             String id = databaseFoods.push().getKey();
             Foods foods = new Foods(id, name, calorie, category);
             databaseFoods.child(id).setValue(foods);
             Toast.makeText(this, "Food added", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "Unsuccessful", Toast.LENGTH_SHORT).show();
+        }
+
+        if (TextUtils.isEmpty(name)){
+            Toast.makeText(this, "Food name field is empty", Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(calorieText)){
+            Toast.makeText(this, "Food calorie field is empty", Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
+
+        if (calorieText.length() > 2500) {
+            Toast.makeText(getApplicationContext(), "Calorie amount cannot be higher than " +
+                    "2500", Toast.LENGTH_SHORT).show();
+            return;
         }
     }
 

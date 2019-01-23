@@ -8,13 +8,13 @@ public class ChatMessage {
     private String messageUser;
     private long messageTime;
 
- public ChatMessage(){
+    public ChatMessage(){
 
- }
+    }
+
     public ChatMessage(String messageText, String messageUser) {
         this.messageText = messageText;
         this.messageUser = messageUser;
-
         messageTime = new Date().getTime();
     }
 

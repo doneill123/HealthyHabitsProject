@@ -52,7 +52,7 @@
             android:id="@+id/textViewSignIn"
             android:layout_width="match_parent"
             android:layout_height="34dp"
-            android:text="Already registered? Sign In Here"
+            android:text="Already registered? Log In Here"
             android:textAlignment="center"
             android:textSize="17dp" />
 

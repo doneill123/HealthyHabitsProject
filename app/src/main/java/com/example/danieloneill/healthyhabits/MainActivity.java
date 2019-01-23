@@ -48,13 +48,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String password = editTextPassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Email field is empty", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (TextUtils.isEmpty(password)){
-            Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(this, "Password field is empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (password.length() < 6) {
+            Toast.makeText(getApplicationContext(), "Password too short, must be more than 6 " +
+                    "characters", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -65,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                                 finish();
+                                Toast.makeText(getApplicationContext(), "Account registered",
+                                        Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(),
                                         HomeActivity.class));
                         }else{
