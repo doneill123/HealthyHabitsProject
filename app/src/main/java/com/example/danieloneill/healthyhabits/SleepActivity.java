@@ -96,6 +96,24 @@ public class SleepActivity extends AppCompatActivity implements View.OnClickList
         double avg = (num1 + num2 + num3 + num4 + num5 + num6 + num7)/7;
 
         t.setText(Double.toString(avg));
+
+        if (avg < 6.1) {
+            Toast.makeText(getApplicationContext(), "You fall under the recommended hours of sleep",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        else if (avg > 9.9){
+            Toast.makeText(getApplicationContext(), "You are over the recommended hours of sleep",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        else {
+            Toast.makeText(getApplicationContext(), "You are within the recommended hours of sleep",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
 
     //When a user clicks the logout button

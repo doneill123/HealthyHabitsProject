@@ -25,11 +25,12 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth firebaseAuth;
     private ImageButton buttonLogout;
-    DatabaseReference databaseFoods;
     ImageButton buttonFood;
+    Button buttonAdd;
+
+    DatabaseReference databaseFoods;
     EditText editTextName;
     EditText editTextCalorie;
-    Button buttonAdd;
     Spinner spinnerFoods;
     ListView listViewFoods;
     List<Foods> foodsList;
@@ -101,7 +102,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         listViewFoods = (ListView) findViewById(R.id.listViewFoods);
         foodsList = new ArrayList<>();
 
-        /*
+
         databaseDrinks = FirebaseDatabase.getInstance().getReference("Drinks");
         editTextDrinkName = (EditText) findViewById(R.id.editTextDrinkName);
         editTextDrinkCalorie = (EditText) findViewById(R.id.editTextDrinkCalorie);
@@ -109,13 +110,19 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         spinnerDrinks = (Spinner) findViewById(R.id.spinnerDrinks);
         listViewDrinks = (ListView) findViewById(R.id.listViewDrinks);
         drinksList = new ArrayList<>();
-        */
+
 
         buttonAdd.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 addFood();
-                //addDrink();
+            }
+        });
+
+        buttonAdd.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addDrink();
             }
         });
     }
@@ -143,8 +150,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
-        /*
-        //Connecting the list of foods from Firebase onto the listview in activity_home.xml
+        //Connecting the list of drinks from Firebase onto the listview in activity_home.xml
         databaseDrinks.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -161,7 +167,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-        */
+
 
     }
 
@@ -194,29 +200,42 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         if (calorieText.length() > 2500) {
             Toast.makeText(getApplicationContext(), "Calorie amount cannot be higher than " +
                     "2500", Toast.LENGTH_SHORT).show();
-            return;
         }
     }
 
-    /*
+
     //Allowing user to add a drink
-    private void addDrink(){
+    private void addDrink() {
         String name = editTextDrinkName.getText().toString().trim();
         String calorieDrinkText = editTextDrinkCalorie.getText().toString().trim();
         int calorie = Integer.parseInt(calorieDrinkText);
         String category = spinnerDrinks.getSelectedItem().toString();
 
-        if(!TextUtils.isEmpty(name)){
-
+        if (!TextUtils.isEmpty(name)) {
             String id = databaseDrinks.push().getKey();
             Drinks drinks = new Drinks(id, name, calorie, category);
             databaseDrinks.child(id).setValue(drinks);
             Toast.makeText(this, "Drink added", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "Enter drink & calorie total", Toast.LENGTH_SHORT).show();
+        }
+
+        if (TextUtils.isEmpty(name)) {
+            Toast.makeText(this, "Drink name field is empty", Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(calorieDrinkText)) {
+            Toast.makeText(this, "Drink calorie field is empty", Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
+
+        if (calorieDrinkText.length() > 2500) {
+            Toast.makeText(getApplicationContext(), "Calorie amount cannot be higher than " +
+                    "2500", Toast.LENGTH_SHORT).show();
         }
     }
-    */
+
 
     //When a user clicks the logout button
     @Override
