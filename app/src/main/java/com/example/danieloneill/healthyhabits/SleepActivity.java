@@ -71,7 +71,6 @@ public class SleepActivity extends AppCompatActivity implements View.OnClickList
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
 
-        Button reset = (Button)findViewById(R.id.buttonReset);
     }
 
     public void avgFunction(View v)
