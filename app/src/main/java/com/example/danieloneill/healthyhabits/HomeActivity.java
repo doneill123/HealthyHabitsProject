@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +22,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.anychart.AnyChartView;
+import com.anychart.charts.Pie;
+import com.anychart.AnyChart;
+import com.anychart.enums.LegendLayout;
+import com.anychart.enums.Align;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,12 +49,22 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     Spinner spinnerDrinks;
     ListView listViewDrinks;
     List<Drinks> drinksList;
+    private int totalFood;
+    private int totalDrinks;
+    Pie pie;
+    AnyChartView anyChartView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        anyChartView = (AnyChartView)findViewById(R.id.any_chart_view);
+        //anyChartView.setProgressBar(findViewById(R.id.progress_bar));
+
+        pie = AnyChart.pie();
+
+        //used to stop the keyboard popping up when home page opens
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         //Buttons for navigation through the application
@@ -93,7 +110,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
-
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
 
@@ -113,7 +129,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         spinnerDrinks = (Spinner) findViewById(R.id.spinnerDrinks);
         listViewDrinks = (ListView) findViewById(R.id.listViewDrinks);
         drinksList = new ArrayList<>();
-
 
         buttonAdd.setOnClickListener(new OnClickListener() {
             @Override
@@ -145,13 +160,45 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 FoodList adapter = new FoodList(HomeActivity.this, foodsList);
                 listViewFoods.setAdapter(adapter);
+
+
+                for ( Foods tempFood : foodsList)
+                {
+                    totalFood += tempFood.getFoodCalorie();
+                }
+
+                for ( Drinks tempDrink : drinksList)
+                {
+                    totalDrinks += tempDrink.getDrinkCalorie();
+                }
+
+                List<DataEntry> data = new ArrayList<>();
+                data.add(new ValueDataEntry("Food", totalFood));
+                data.add(new ValueDataEntry("Drink", totalDrinks));
+
+                pie.data((data));
+
+                pie.title("Calories consumed per day");
+
+               // pie.labels().position("outside");
+
+               // pie.legend().title().enabled(true);
+               // pie.legend().title()
+               //         .text("Retail channels")
+               //         .padding(0d, 0d, 10d, 0d);
+
+                pie.legend()
+                        .position("center-bottom")
+                        .itemsLayout(LegendLayout.HORIZONTAL)
+                        .align(Align.CENTER);
+
+                anyChartView.setChart(pie);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
 
         //Connecting the list of drinks from Firebase onto the listview in activity_home.xml
         databaseDrinks.addValueEventListener(new ValueEventListener() {
@@ -170,42 +217,40 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
-
     }
 
     //Allowing user to add a food
-    private void addFood(){
+    private void addFood() {
         String name = editTextName.getText().toString().trim();
         String calorieText = editTextCalorie.getText().toString().trim();
         int calorie = Integer.parseInt(calorieText);
         String category = spinnerFoods.getSelectedItem().toString();
 
-        if(!TextUtils.isEmpty(name)){
-            String id = databaseFoods.push().getKey();
-            Foods foods = new Foods(id, name, calorie, category);
-            databaseFoods.child(id).setValue(foods);
-            Toast.makeText(this, "Food added", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(name) && TextUtils.isEmpty(calorieText)) {
+            Toast.makeText(this, "No data has been added yet", Toast.LENGTH_SHORT)
+                    .show();
+            return;
         }
 
-        if (TextUtils.isEmpty(name)){
+        if (TextUtils.isEmpty(name)) {
             Toast.makeText(this, "Food name field is empty", Toast.LENGTH_SHORT)
                     .show();
             return;
         }
 
-        if (TextUtils.isEmpty(calorieText)){
+        if (TextUtils.isEmpty(calorieText)) {
             Toast.makeText(this, "Food calorie field is empty", Toast.LENGTH_SHORT)
                     .show();
             return;
         }
 
-        if (calorieText.length() > 2500) {
-            Toast.makeText(getApplicationContext(), "Calorie amount cannot be higher than " +
-                    "2500", Toast.LENGTH_SHORT).show();
+        else if(!TextUtils.isEmpty(name)) {
+            String id = databaseFoods.push().getKey();
+            Foods foods = new Foods(id, name, calorie, category);
+            databaseFoods.child(id).setValue(foods);
+            Toast.makeText(this, "Food added", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     //Allowing user to add a drink
     private void addDrink() {
@@ -214,11 +259,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         int calorie = Integer.parseInt(calorieDrinkText);
         String category = spinnerDrinks.getSelectedItem().toString();
 
-        if (!TextUtils.isEmpty(name)) {
-            String id = databaseDrinks.push().getKey();
-            Drinks drinks = new Drinks(id, name, calorie, category);
-            databaseDrinks.child(id).setValue(drinks);
-            Toast.makeText(this, "Drink added", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(name) && TextUtils.isEmpty(calorieDrinkText)) {
+            Toast.makeText(this, "No data has been added yet", Toast.LENGTH_SHORT)
+                    .show();
+            return;
         }
 
         if (TextUtils.isEmpty(name)) {
@@ -233,12 +277,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        if (calorieDrinkText.length() > 2500) {
-            Toast.makeText(getApplicationContext(), "Calorie amount cannot be higher than " +
-                    "2500", Toast.LENGTH_SHORT).show();
+        else if (!TextUtils.isEmpty(name)) {
+            String id = databaseDrinks.push().getKey();
+            Drinks drinks = new Drinks(id, name, calorie, category);
+            databaseDrinks.child(id).setValue(drinks);
+            Toast.makeText(this, "Drink added", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     //When a user clicks the logout button
     @Override

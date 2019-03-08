@@ -7,8 +7,7 @@ public class Foods {
     int foodCalorie;
     String foodCategory;
 
-    public Foods(){
-
+    public Foods() {
     }
 
     public Foods(String foodId, String foodName, int foodCalorie, String foodCategory) {

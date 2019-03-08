@@ -1,7 +1,6 @@
 package com.example.danieloneill.healthyhabits;
 
 import android.content.Intent;
-import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,13 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import java.util.Vector;
 
 public class ExerciseActivity extends AppCompatActivity implements View.OnClickListener{
@@ -26,10 +21,8 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
     private ViewPager mViewPager;
     private static final String TAG = "ExerciseActivity";
 
-
     RecyclerView recyclerView;
     Vector<YoutubeVideos> youtubeVideos = new Vector<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,12 +74,8 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         }
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
-
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
-
-
-
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -96,8 +85,6 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
                 "/iframe>") );
         YoutubeVideoAdapter videoAdapter = new YoutubeVideoAdapter(youtubeVideos);
         recyclerView.setAdapter(videoAdapter);
-
-
     }
 
     //When a user clicks the logout button

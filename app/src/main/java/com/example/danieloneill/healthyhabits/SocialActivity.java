@@ -32,6 +32,7 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social);
 
+        //used to stop the keyboard popping up when home page opens
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);

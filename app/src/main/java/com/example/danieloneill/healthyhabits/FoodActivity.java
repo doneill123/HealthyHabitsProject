@@ -69,13 +69,10 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
-
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
 
-
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
-
         mViewPager = (ViewPager) findViewById(R.id.container);
         setUpViewPager(mViewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -83,7 +80,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //Fragments created
-    private void setUpViewPager(ViewPager viewPager){
+    private void setUpViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1Fragment(), "Health");
         adapter.addFragment(new Tab2Fragment(), "Budget");

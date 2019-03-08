@@ -43,16 +43,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //Text views to allow a user to register
-    private void registerUser(){
+    private void registerUser() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        if(TextUtils.isEmpty(email)){
+        if(TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Email field is empty", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if (TextUtils.isEmpty(password)){
+        if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Password field is empty", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -68,13 +68,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
                                 finish();
                                 Toast.makeText(getApplicationContext(), "Account registered",
                                         Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(),
                                         HomeActivity.class));
-                        }else{
+                        }else {
                             Toast.makeText(MainActivity.this, "Failed to register. " +
                                     "Please try again", Toast.LENGTH_SHORT).show();
                         }

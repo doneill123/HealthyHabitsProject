@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -69,13 +68,10 @@ public class DrinkActivity extends AppCompatActivity implements View.OnClickList
         }
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
-
         buttonLogout = (ImageButton) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
 
-
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
-
         mViewPager = (ViewPager) findViewById(R.id.container);
         setUpViewPager(mViewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -83,7 +79,7 @@ public class DrinkActivity extends AppCompatActivity implements View.OnClickList
     }
 
     //Fragments created
-    private void setUpViewPager(ViewPager viewPager){
+    private void setUpViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab3Fragment(), "Alcoholic");
         adapter.addFragment(new Tab4Fragment(), "Non-alcoholic");

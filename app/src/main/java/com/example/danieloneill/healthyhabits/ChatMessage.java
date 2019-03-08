@@ -8,8 +8,7 @@ public class ChatMessage {
     private String messageUser;
     private long messageTime;
 
-    public ChatMessage(){
-
+    public ChatMessage() {
     }
 
     public ChatMessage(String messageText, String messageUser) {
