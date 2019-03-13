@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/message_user"
-        android:layout_width="216dp"
+        android:layout_width="281dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -17,21 +17,21 @@
 
     <TextView
         android:id="@+id/message_time"
-        android:layout_width="157dp"
-        android:layout_height="wrap_content"
+        android:layout_width="113dp"
+        android:layout_height="55dp"
         android:layout_alignStart="@+id/message_text"
         android:layout_alignBottom="@+id/message_text"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="223dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="-7dp"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/message_text"
-        android:layout_width="219dp"
+        android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/message_user"
         android:layout_alignParentStart="true"

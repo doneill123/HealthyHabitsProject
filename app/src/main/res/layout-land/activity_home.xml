@@ -260,18 +260,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/pgbCalorieProgress"
-        style="?android:progressBarStyleHorizontal"
-        android:layout_width="177dp"
-        android:layout_height="179dp"
+    <com.anychart.AnyChartView
+        android:id="@+id/any_chart_view"
+        android:layout_width="241dp"
+        android:layout_height="213dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
-        android:progress="2500"
-        android:progressDrawable="@drawable/circle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

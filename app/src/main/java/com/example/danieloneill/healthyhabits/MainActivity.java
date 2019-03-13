@@ -58,8 +58,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (password.length() < 6) {
-            Toast.makeText(getApplicationContext(), "Password too short, must be more than 6 " +
-                    "characters", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Password must be between 6 " +
+                    "and 15 characters", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (password.length() > 15) {
+            Toast.makeText(getApplicationContext(), "Password must be between 6 " +
+                    "and 15 characters", Toast.LENGTH_SHORT).show();
             return;
         }
 

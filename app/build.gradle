@@ -34,6 +34,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui:0.6.2'
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
     implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
+    implementation 'com.github.xbroak:CharCountTextView:v1.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
