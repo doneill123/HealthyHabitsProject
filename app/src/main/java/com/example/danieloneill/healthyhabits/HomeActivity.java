@@ -49,6 +49,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     Spinner spinnerDrinks;
     ListView listViewDrinks;
     List<Drinks> drinksList;
+
     private int totalFood;
     private int totalDrinks;
     Pie pie;
@@ -121,7 +122,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         listViewFoods = (ListView) findViewById(R.id.listViewFoods);
         foodsList = new ArrayList<>();
 
-
         databaseDrinks = FirebaseDatabase.getInstance().getReference("Drinks");
         editTextDrinkName = (EditText) findViewById(R.id.editTextDrinkName);
         editTextDrinkCalorie = (EditText) findViewById(R.id.editTextDrinkCalorie);
@@ -161,7 +161,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 FoodList adapter = new FoodList(HomeActivity.this, foodsList);
                 listViewFoods.setAdapter(adapter);
 
-
                 for ( Foods tempFood : foodsList)
                 {
                     totalFood += tempFood.getFoodCalorie();
@@ -177,15 +176,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 data.add(new ValueDataEntry("Drink", totalDrinks));
 
                 pie.data((data));
-
                 pie.title("Calories consumed per day");
-
-               // pie.labels().position("outside");
-
-               // pie.legend().title().enabled(true);
-               // pie.legend().title()
-               //         .text("Retail channels")
-               //         .padding(0d, 0d, 10d, 0d);
 
                 pie.legend()
                         .position("center-bottom")
