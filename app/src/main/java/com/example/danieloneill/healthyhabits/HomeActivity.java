@@ -218,7 +218,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         String category = spinnerFoods.getSelectedItem().toString();
 
         if (TextUtils.isEmpty(name) && TextUtils.isEmpty(calorieText)) {
-            Toast.makeText(this, "No data has been added yet", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "Both food fields left empty", Toast.LENGTH_SHORT)
                     .show();
             return;
         }
@@ -251,7 +251,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         String category = spinnerDrinks.getSelectedItem().toString();
 
         if (TextUtils.isEmpty(name) && TextUtils.isEmpty(calorieDrinkText)) {
-            Toast.makeText(this, "No data has been added yet", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "Both drink fields left empty", Toast.LENGTH_SHORT)
                     .show();
             return;
         }
