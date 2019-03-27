@@ -35,6 +35,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton buttonLogout;
     ImageButton buttonFood;
     Button buttonAdd;
+    Button buttonAdd1;
 
     DatabaseReference databaseFoods;
     EditText editTextName;
@@ -125,7 +126,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         databaseDrinks = FirebaseDatabase.getInstance().getReference("Drinks");
         editTextDrinkName = (EditText) findViewById(R.id.editTextDrinkName);
         editTextDrinkCalorie = (EditText) findViewById(R.id.editTextDrinkCalorie);
-        buttonAdd = (Button) findViewById(R.id.buttonAddDrink);
+        buttonAdd1 = (Button) findViewById(R.id.buttonAddDrink);
         spinnerDrinks = (Spinner) findViewById(R.id.spinnerDrinks);
         listViewDrinks = (ListView) findViewById(R.id.listViewDrinks);
         drinksList = new ArrayList<>();
@@ -137,7 +138,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        buttonAdd.setOnClickListener(new OnClickListener() {
+        buttonAdd1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 addDrink();
@@ -202,6 +203,31 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 DrinkList adapter = new DrinkList(HomeActivity.this, drinksList);
                 listViewDrinks.setAdapter(adapter);
+
+                for ( Foods tempFood : foodsList)
+                {
+                    totalFood += tempFood.getFoodCalorie();
+                }
+
+                for ( Drinks tempDrink : drinksList)
+                {
+                    totalDrinks += tempDrink.getDrinkCalorie();
+                }
+
+                List<DataEntry> data = new ArrayList<>();
+                data.add(new ValueDataEntry("Food", totalFood));
+                data.add(new ValueDataEntry("Drink", totalDrinks));
+
+                pie.data((data));
+                pie.title("Calories consumed per day");
+
+                pie.legend()
+                        .position("center-bottom")
+                        .itemsLayout(LegendLayout.HORIZONTAL)
+                        .align(Align.CENTER);
+
+                anyChartView.setChart(pie);
+
             }
 
             @Override
@@ -265,7 +291,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         if (TextUtils.isEmpty(calorieDrinkText)) {
             Toast.makeText(this, "Drink calorie field is empty", Toast.LENGTH_SHORT)
                     .show();
-            return;
         }
 
         else if (!TextUtils.isEmpty(name)) {
